@@ -1,13 +1,10 @@
 using UnityEngine;
 
-interface InteractableEvent {
-    public void typeEvent();
-}
-
 public class PlayerMovement : MonoBehaviour
 {
     public float Player_Speed = 4f;
     public float MouseSens = 1.5f;
+    public GameObject interactionPanel;
     private float CameraUpDownMov = 0;
     private CharacterController Character;
 
@@ -42,8 +39,14 @@ public class PlayerMovement : MonoBehaviour
 
         if(Physics.Raycast(ray, out RaycastHit raycast, 2f)){
             if(raycast.collider.gameObject.TryGetComponent(out InteractableEvent obj)){
-                obj.typeEvent();
+                interactionPanel.SetActive(true);
+                if(Input.GetKeyDown(KeyCode.E)){
+                    obj.typeEvent();
+                }
             }
+        }
+        else{
+            interactionPanel.SetActive(false);
         }
     }
 }
