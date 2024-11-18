@@ -10,7 +10,7 @@ public class HazardTrigger : MonoBehaviour
     {
         if (EnemyController.instance != null)
         {
-            EnemyController.instance.MoveToPlayer(other.transform);
+            EnemyController.instance.MoveToPlayer(this.transform);
         }
     }
 
