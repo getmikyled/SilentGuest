@@ -10,6 +10,12 @@ public class EnemyController : MonoBehaviour
     public NavMeshAgent agent;
     public float stoppingDistance = 0.5f; // Leeway distance to consider position as arrived
 
+    [Header("Components")] 
+    [SerializeField] private Rigidbody _rigidbody;
+    [SerializeField] private Animator _animator;
+
+    private static int SerialKiller_Forward_ParamID = Animator.StringToHash("Forward");
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -41,7 +47,8 @@ public class EnemyController : MonoBehaviour
             current = (current + 1) % points.Length; // update current index
             agent.SetDestination(points[current].position);
         }
-
+        
+        _animator.SetFloat(SerialKiller_Forward_ParamID, _rigidbody.linearVelocity.normalized.magnitude);
     }
 
     public void MoveToPlayer(Transform playerTransform)
