@@ -28,7 +28,7 @@ public class FieldOfView : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position, playerRef.transform.position) < 1.8f && !isDead)
+        if (Vector3.Distance(transform.position, playerRef.transform.position) < 2f && !isDead)
         {
             isDead = true;
             EnemyController.instance.StopMoving();
@@ -99,10 +99,8 @@ public class FieldOfView : MonoBehaviour
         Vector3 directionToEnemy = (transform.position - playerRef.transform.position).normalized;
 
         Quaternion lookRotation = Quaternion.LookRotation(directionToEnemy);
-        Debug.Log("Direction to Enemy: " + directionToEnemy);
-        Debug.Log("Look Rotation: " + lookRotation.eulerAngles);
 
-        float duration = 2f; // time to complete rotation
+        float duration = 3f; // time to complete rotation
         float elapsedTime = 0f;
 
         while (elapsedTime < duration)
