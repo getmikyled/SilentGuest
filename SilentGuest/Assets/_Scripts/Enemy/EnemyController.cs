@@ -58,4 +58,10 @@ public class EnemyController : MonoBehaviour
             agent.SetDestination(playerTransform.position);
         }
     }
+
+    public void StopMoving()
+    {
+        agent.speed = 0;
+        // add killing animation
+    }
 }

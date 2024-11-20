@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+
 public class FieldOfView : MonoBehaviour
 {
     public float radius;
@@ -16,10 +17,24 @@ public class FieldOfView : MonoBehaviour
 
     public bool canSeePlayer;
 
+    public GameManager gameManager;
+    private bool isDead;
+
     private void Start()
     {
         playerRef = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FOVRoutine());
+    }
+
+    private void Update()
+    {
+        if (Vector3.Distance(transform.position, playerRef.transform.position) < 1.8f && !isDead)
+        {
+            isDead = true;
+            EnemyController.instance.StopMoving();
+            gameManager.GameOver();
+            Debug.Log("Player died");
+        }
     }
 
     // coroutine
@@ -52,6 +67,7 @@ public class FieldOfView : MonoBehaviour
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                 {
                     canSeePlayer = true;
+                    OnPlayerSpotted();
                 }
                 else
                 {
@@ -67,5 +83,35 @@ public class FieldOfView : MonoBehaviour
         {
             canSeePlayer = false;
         }
+    }
+
+    void OnPlayerSpotted()
+    {
+        EnemyController.instance.MoveToPlayer(playerRef.transform);
+
+        // Disable player movement and look toward enemy
+        playerRef.GetComponent<PlayerMovement>().DisableMovement();
+        StartCoroutine(LookAtEnemy());
+    }
+
+    private IEnumerator LookAtEnemy()
+    {
+        Vector3 directionToEnemy = (transform.position - playerRef.transform.position).normalized;
+
+        Quaternion lookRotation = Quaternion.LookRotation(directionToEnemy);
+        Debug.Log("Direction to Enemy: " + directionToEnemy);
+        Debug.Log("Look Rotation: " + lookRotation.eulerAngles);
+
+        float duration = 2f; // time to complete rotation
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            playerRef.transform.rotation = Quaternion.Slerp(playerRef.transform.rotation, lookRotation, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        playerRef.transform.rotation = lookRotation;
     }
 }

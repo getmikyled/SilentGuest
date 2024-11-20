@@ -49,4 +49,9 @@ public class PlayerMovement : MonoBehaviour
             interactionPanel.SetActive(false);
         }
     }
+
+    public void DisableMovement()
+    {
+        enabled = false;
+    }
 }
