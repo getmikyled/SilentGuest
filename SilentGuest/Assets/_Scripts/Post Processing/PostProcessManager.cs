@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PostProcessManager : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class PostProcessManager : MonoBehaviour
         {
             instance = this;
         }
+        
+        postProcessMaterial.SetFloat("_ScreenEffectIntensity", 0);
     }
     
     public void PlayDeathEffect()
