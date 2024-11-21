@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Animator _animator;
 
     private static int SerialKiller_Forward_ParamID = Animator.StringToHash("Forward");
+    private static int SerialKiller_Stab_StateID = Animator.StringToHash("SerialKiller_Stab");
 
     private void Awake()
     {
@@ -58,10 +59,18 @@ public class EnemyController : MonoBehaviour
             agent.SetDestination(playerTransform.position);
         }
     }
-
+    
     public void StopMoving()
     {
         agent.speed = 0;
         // add killing animation
+    }
+
+    public void MurderPlayer()
+    {
+        StopMoving();
+        
+        // Play stab animation
+        _animator.CrossFade(SerialKiller_Stab_StateID, 0.15f);
     }
 }

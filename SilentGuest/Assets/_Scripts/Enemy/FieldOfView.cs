@@ -9,31 +9,31 @@ public class FieldOfView : MonoBehaviour
     [Range(0, 360)]
     public float angle;
 
-    public GameObject playerRef;
-
     // Layer Masks to ignore obstacles but target certain objects
     public LayerMask targetMask;
     public LayerMask obstructionMask;
 
     public bool canSeePlayer;
-
-    public GameManager gameManager;
+    
     private bool isDead;
+
+    [SerializeField] private Transform headLookAt;
+    
+    [SerializeField] private float distanceFromPlayerForGameOver = 0.5f;
 
     private void Start()
     {
-        playerRef = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FOVRoutine());
     }
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position, playerRef.transform.position) < 2f && !isDead)
+        if (Vector3.Distance(transform.position, PlayerMovement.instance.transform.position) < distanceFromPlayerForGameOver && !isDead)
         {
             isDead = true;
-            EnemyController.instance.StopMoving();
-            gameManager.GameOver();
-            Debug.Log("Player died");
+            EnemyController.instance.MurderPlayer();
+            PostProcessManager.instance.PlayDeathEffect();
+            GameManager.instance.GameOver();
         }
     }
 
@@ -87,16 +87,16 @@ public class FieldOfView : MonoBehaviour
 
     void OnPlayerSpotted()
     {
-        EnemyController.instance.MoveToPlayer(playerRef.transform);
+        EnemyController.instance.MoveToPlayer(PlayerMovement.instance.transform);
 
         // Disable player movement and look toward enemy
-        playerRef.GetComponent<PlayerMovement>().DisableMovement();
-        StartCoroutine(LookAtEnemy());
+        PlayerMovement.instance.DisableMovement();
+        StartCoroutine(UpdateLookRotations());
     }
 
-    private IEnumerator LookAtEnemy()
+    private IEnumerator UpdateLookRotations()
     {
-        Vector3 directionToEnemy = (transform.position - playerRef.transform.position).normalized;
+        Vector3 directionToEnemy = (headLookAt.transform.position - PlayerMovement.instance.transform.position).normalized;
 
         Quaternion lookRotation = Quaternion.LookRotation(directionToEnemy);
 
@@ -105,11 +105,11 @@ public class FieldOfView : MonoBehaviour
 
         while (elapsedTime < duration)
         {
-            playerRef.transform.rotation = Quaternion.Slerp(playerRef.transform.rotation, lookRotation, elapsedTime / duration);
+            PlayerMovement.instance.transform.rotation = Quaternion.Slerp(PlayerMovement.instance.transform.rotation, lookRotation, elapsedTime / duration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        playerRef.transform.rotation = lookRotation;
+        PlayerMovement.instance.transform.rotation = lookRotation;
     }
 }

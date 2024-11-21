@@ -2,12 +2,26 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement instance;
+    
     public float Player_Speed = 4f;
     public float MouseSens = 1.5f;
     public GameObject interactionPanel;
     private float CameraUpDownMov = 0;
     private CharacterController Character;
 
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+    
     void Start()
     {
         Character = GetComponent<CharacterController>();
