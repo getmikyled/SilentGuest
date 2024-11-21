@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class HazardTrigger : MonoBehaviour
 {
 
-    //[SerializeField] UnityEvent OnTriggerEnterPlayEvent;
+    [SerializeField] UnityEvent OnTriggerEnterPlayEvent;
 
     void OnTriggerEnter(Collider other)
     {
@@ -12,6 +12,8 @@ public class HazardTrigger : MonoBehaviour
         {
             EnemyController.instance.MoveToPlayer(this.transform);
         }
+
+        OnTriggerEnterPlayEvent.Invoke();
     }
 
 }

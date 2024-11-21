@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+        gameOverUI.SetActive(false);
     }
     
     public void GameOver()
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Debug.Log("Restart");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
