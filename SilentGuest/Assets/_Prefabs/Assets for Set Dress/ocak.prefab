@@ -441,6 +441,7 @@ GameObject:
   - component: {fileID: 8434497158398297882}
   - component: {fileID: 1799979790588158808}
   - component: {fileID: 3144340695909012685}
+  - component: {fileID: 8074462076946585998}
   m_Layer: 0
   m_Name: ocak
   m_TagString: Untagged
@@ -524,6 +525,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8074462076946585998
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7000311596389891351}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.033562, y: 0.05966706, z: 1.0243615}
+  m_Center: {x: -0.1574982, y: 0.0075845188, z: 0}
 --- !u!1 &8468233308859557982
 GameObject:
   m_ObjectHideFlags: 0

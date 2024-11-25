@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 8036646748206438220}
   - component: {fileID: 5649534334283468873}
   - component: {fileID: 3836110031010588323}
+  - component: {fileID: 2242084998240045414}
   m_Layer: 0
   m_Name: Suitcase
   m_TagString: Untagged
@@ -260,3 +261,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2242084998240045414
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7139108412908502640}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.14614026, y: 0.07445717, z: 0.4129448}
+  m_Center: {x: -0.00221733, y: 0.000000009313226, z: -0.00055698305}

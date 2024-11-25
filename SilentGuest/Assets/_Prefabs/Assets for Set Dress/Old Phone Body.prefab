@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: 7137258222460361338}
   - component: {fileID: 4319431065708235911}
   - component: {fileID: 4129089534411135959}
+  - component: {fileID: 343934691749231044}
   m_Layer: 0
   m_Name: Old Phone Body
   m_TagString: Untagged
@@ -434,3 +435,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &343934691749231044
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7228444190597775052}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6624009, y: 0.2519477, z: 0.6624009}
+  m_Center: {x: 0, y: -0.20522666, z: 0.000000059604645}

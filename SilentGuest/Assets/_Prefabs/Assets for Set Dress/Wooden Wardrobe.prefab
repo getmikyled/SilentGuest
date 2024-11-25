@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 955252777711595371}
   - component: {fileID: 6680551255614839929}
   - component: {fileID: 5628914583221013090}
+  - component: {fileID: 3592206946678210810}
   m_Layer: 0
   m_Name: Wooden Wardrobe
   m_TagString: Untagged
@@ -174,6 +175,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3592206946678210810
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3895500312916846791}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.86809385, y: 2.4802685, z: 1.2401352}
+  m_Center: {x: -0.058688164, y: -0.2193076, z: 0.0000019073486}
 --- !u!1 &4772903687803935200
 GameObject:
   m_ObjectHideFlags: 0

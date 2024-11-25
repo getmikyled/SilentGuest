@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7042938254028918041}
   - component: {fileID: 8266338707053382172}
   - component: {fileID: 6886794372722020240}
+  - component: {fileID: 2987552371470769836}
   m_Layer: 0
   m_Name: Aspirator
   m_TagString: Untagged
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2987552371470769836
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2888929892904857229}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9747734, y: 0.36687922, z: 1.3662198}
+  m_Center: {x: -0.10395199, y: -0.021017946, z: 0.002750665}

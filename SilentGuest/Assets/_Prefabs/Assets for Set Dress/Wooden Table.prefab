@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2511736426055724596}
   - component: {fileID: 3432610088340174171}
   - component: {fileID: 4505160827949205069}
+  - component: {fileID: 2608353787521557264}
   m_Layer: 0
   m_Name: Wooden Table
   m_TagString: Untagged
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2608353787521557264
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055080171969908624}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 1.2541739, z: 1.3445666}
+  m_Center: {x: 0, y: -0.57708687, z: 0}

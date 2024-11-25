@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 606240585336213599}
   - component: {fileID: 2738370756548308887}
   - component: {fileID: 696439352257214372}
+  - component: {fileID: -9085764911293474847}
   m_Layer: 0
   m_Name: Double Couch
   m_TagString: Untagged
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-9085764911293474847
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7353884876145100512}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.045431, y: 1.645899, z: 3.8292909}
+  m_Center: {x: -0.09312627, y: -0.017577708, z: 0.013205111}

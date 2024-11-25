@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 2182813187060856886}
   - component: {fileID: 7640613443128804614}
   - component: {fileID: 1589644396963613335}
+  - component: {fileID: 8962259154724795328}
   m_Layer: 0
   m_Name: Toaster
   m_TagString: Untagged
@@ -173,3 +174,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8962259154724795328
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5106998529985525886}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0005157, y: 0.5002579, z: 0.5002575}
+  m_Center: {x: 0.000000059604645, y: -0.11354143, z: 0.000000014901161}
