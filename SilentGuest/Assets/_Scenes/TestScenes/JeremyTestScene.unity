@@ -240,6 +240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c281e0df542f541b5e3d0f14fca511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTriggerEnterPlayEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &210920600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,6 +1177,18 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8120179443362735633, guid: 115488fa725df974d8088d944b83b572, type: 3}
+      propertyPath: delays.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120179443362735633, guid: 115488fa725df974d8088d944b83b572, type: 3}
+      propertyPath: 'delays.Array.data[2]'
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120179443362735633, guid: 115488fa725df974d8088d944b83b572, type: 3}
+      propertyPath: 'delays.Array.data[3]'
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120179443362735633, guid: 115488fa725df974d8088d944b83b572, type: 3}
       propertyPath: 'points.Array.data[0]'
       value: 
       objectReference: {fileID: 486714875}
@@ -1189,6 +1204,38 @@ PrefabInstance:
       propertyPath: 'points.Array.data[3]'
       value: 
       objectReference: {fileID: 513121782}
+    - target: {fileID: 8120179443362735633, guid: 115488fa725df974d8088d944b83b572, type: 3}
+      propertyPath: points.Array.data[0].point
+      value: 
+      objectReference: {fileID: 486714875}
+    - target: {fileID: 8120179443362735633, guid: 115488fa725df974d8088d944b83b572, type: 3}
+      propertyPath: points.Array.data[1].point
+      value: 
+      objectReference: {fileID: 1804396732}
+    - target: {fileID: 8120179443362735633, guid: 115488fa725df974d8088d944b83b572, type: 3}
+      propertyPath: points.Array.data[2].point
+      value: 
+      objectReference: {fileID: 1069666058}
+    - target: {fileID: 8120179443362735633, guid: 115488fa725df974d8088d944b83b572, type: 3}
+      propertyPath: points.Array.data[3].point
+      value: 
+      objectReference: {fileID: 513121782}
+    - target: {fileID: 8120179443362735633, guid: 115488fa725df974d8088d944b83b572, type: 3}
+      propertyPath: points.Array.data[2].hasDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120179443362735633, guid: 115488fa725df974d8088d944b83b572, type: 3}
+      propertyPath: points.Array.data[3].hasDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120179443362735633, guid: 115488fa725df974d8088d944b83b572, type: 3}
+      propertyPath: points.Array.data[2].delayDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120179443362735633, guid: 115488fa725df974d8088d944b83b572, type: 3}
+      propertyPath: points.Array.data[3].delayDuration
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

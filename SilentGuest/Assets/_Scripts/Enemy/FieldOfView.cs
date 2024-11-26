@@ -87,6 +87,7 @@ public class FieldOfView : MonoBehaviour
 
     void OnPlayerSpotted()
     {
+        EnemyController.instance.SetSpeed(1.5f);
         EnemyController.instance.MoveToPlayer(PlayerMovement.instance.transform);
 
         // Disable player movement and look toward enemy

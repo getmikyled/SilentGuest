@@ -4,7 +4,7 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     public static EnemyController instance { get; private set; }
-    public Transform[] points; // points must be same height as Enemy
+    public Waypoint[] waypoints; // points must be same height as Enemy
     private int current;
 
     public NavMeshAgent agent;
@@ -33,9 +33,9 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         current = 0;
-        if (points.Length > 0)
+        if (waypoints.Length > 0)
         {
-            agent.SetDestination(points[current].position);
+            agent.SetDestination(waypoints[current].point.position);
         }
     }
 
@@ -45,8 +45,8 @@ public class EnemyController : MonoBehaviour
         // check if agent close enough to current point
         if (!agent.pathPending && agent.remainingDistance <= stoppingDistance)
         {
-            current = (current + 1) % points.Length; // update current index
-            agent.SetDestination(points[current].position);
+            current = (current + 1) % waypoints.Length; // update current index
+            agent.SetDestination(waypoints[current].point.position);
         }
         
         _animator.SetFloat(SerialKiller_Forward_ParamID, _rigidbody.linearVelocity.normalized.magnitude);
@@ -72,5 +72,10 @@ public class EnemyController : MonoBehaviour
         
         // Play stab animation
         _animator.CrossFade(SerialKiller_Stab_StateID, 0.15f);
+    }
+
+    public void SetSpeed(float speed)
+    {
+        agent.speed = 0;
     }
 }
