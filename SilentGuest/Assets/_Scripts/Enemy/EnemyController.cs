@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,6 +10,8 @@ public class EnemyController : MonoBehaviour
 
     public NavMeshAgent agent;
     public float stoppingDistance = 0.5f; // Leeway distance to consider position as arrived
+
+    private bool isWaiting = false;
 
     [Header("Components")] 
     [SerializeField] private Rigidbody _rigidbody;
@@ -42,15 +45,49 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // check if agent close enough to current point
-        if (!agent.pathPending && agent.remainingDistance <= stoppingDistance)
+        if (!isWaiting)
         {
-            current = (current + 1) % waypoints.Length; // update current index
-            agent.SetDestination(waypoints[current].point.position);
+            // check if agent close enough to current point
+            if (!agent.pathPending && agent.remainingDistance <= stoppingDistance)
+            {
+                if (waypoints[current].hasDelay)
+                {
+                    StartCoroutine(WaitAtWaypoint(waypoints[current].delayDuration));
+                }
+                else
+                {
+                    MoveToNextWaypoint();
+                }
+            }
+            _animator.SetFloat(SerialKiller_Forward_ParamID, _rigidbody.linearVelocity.normalized.magnitude);
         }
-        
-        _animator.SetFloat(SerialKiller_Forward_ParamID, _rigidbody.linearVelocity.normalized.magnitude);
+        else
+        {
+            _animator.SetFloat(SerialKiller_Forward_ParamID, 0f);
+        }
     }
+
+    private IEnumerator WaitAtWaypoint(float delay)
+    {
+        isWaiting = true;
+
+        agent.isStopped = true;
+        _animator.SetFloat(SerialKiller_Forward_ParamID, 0f);
+
+        yield return new WaitForSeconds(delay);
+
+        agent.isStopped = false;
+
+        MoveToNextWaypoint();
+
+        isWaiting = false;
+    }
+    private void MoveToNextWaypoint()
+    {
+        current = (current + 1) % waypoints.Length; // update current index
+        agent.SetDestination(waypoints[current].point.position);
+    }
+
 
     public void MoveToPlayer(Transform playerTransform)
     {
