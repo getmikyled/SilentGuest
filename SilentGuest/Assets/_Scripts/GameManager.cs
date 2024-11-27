@@ -33,4 +33,12 @@ public class GameManager : MonoBehaviour
         Debug.Log("Restart");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void MainMenu()
+    {
+        Debug.Log("MainMenu");
+        SceneManager.LoadScene("MainMenu");
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
 }
