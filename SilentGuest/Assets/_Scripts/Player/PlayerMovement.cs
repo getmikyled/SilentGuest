@@ -35,6 +35,11 @@ public class PlayerMovement : MonoBehaviour
         float sideMovement = Input.GetAxis("Horizontal") * Player_Speed;
         Vector3 movement = ((transform.forward * forwardMovement) + (transform.right * sideMovement));
 
+        if (!Character.isGrounded)
+        {
+            movement.y -= gravity * Time.deltaTime;
+        }
+
         Character.Move(movement * Time.deltaTime);
 
         CameraUpDownMov += -(Input.GetAxis("Mouse Y") * MouseSens);
