@@ -35,10 +35,10 @@ public class PlayerMovement : MonoBehaviour
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
         
-        float curSpeedX = Input.GetAxis("Vertical") * Player_Speed;
-        float curSpeedY = Input.GetAxis("Horizontal") * Player_Speed;
+        float verticalMov = Input.GetAxis("Vertical") * Player_Speed;
+        float horizontalMov = Input.GetAxis("Horizontal") * Player_Speed;
         float movementDirectionY = movement.y;
-        movement = (forward * curSpeedX) + (right * curSpeedY);
+        movement = (forward * verticalMov) + (right * horizontalMov);
 
         movement.y = movementDirectionY;
 
