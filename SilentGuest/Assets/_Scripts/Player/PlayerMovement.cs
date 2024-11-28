@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!Character.isGrounded)
         {
-            movement.y -= gravity * Time.deltaTime;
+            movement.y -= 10f * Time.deltaTime;
         }
 
         Character.Move(movement * Time.deltaTime);
