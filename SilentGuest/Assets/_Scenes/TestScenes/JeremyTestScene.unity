@@ -332,7 +332,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7432866720180845453, guid: 120078d1a79fb04458319a568b5a8b56, type: 3}
   m_PrefabInstance: {fileID: 4577356266964705338}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2006428552}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d64cf48603ca23d41a5ada8b7e487b51, type: 3}
@@ -1082,6 +1082,25 @@ Transform:
   - {fileID: 1273470269}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2006428552 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8918050499241185845, guid: 120078d1a79fb04458319a568b5a8b56, type: 3}
+  m_PrefabInstance: {fileID: 4577356266964705338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2006428554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006428552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63abd7c95ad73a643a8167ae3949ae96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  postProcessMaterial: {fileID: 0}
+  deathEffectDuration: 2
 --- !u!1001 &2207903555048679427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1133,6 +1152,10 @@ PrefabInstance:
     - target: {fileID: 585219497234438885, guid: c09511d6cb917e148873977a36d2d30d, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414160627742104177, guid: c09511d6cb917e148873977a36d2d30d, type: 3}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 6030675641366505130, guid: c09511d6cb917e148873977a36d2d30d, type: 3}
       propertyPath: waypoints.Array.data[0].point
@@ -1214,7 +1237,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8918050499241185845, guid: 120078d1a79fb04458319a568b5a8b56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2006428554}
   m_SourcePrefab: {fileID: 100100000, guid: 120078d1a79fb04458319a568b5a8b56, type: 3}
 --- !u!1001 &6093748964216758150
 PrefabInstance:
@@ -1473,6 +1499,10 @@ PrefabInstance:
     - target: {fileID: 7562930199766097330, guid: cbf74be97e8f7c2408befada58068436, type: 3}
       propertyPath: m_Name
       value: MenuCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562930199766097330, guid: cbf74be97e8f7c2408befada58068436, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

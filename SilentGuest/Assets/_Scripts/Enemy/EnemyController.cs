@@ -88,7 +88,6 @@ public class EnemyController : MonoBehaviour
         agent.SetDestination(waypoints[current].point.position);
     }
 
-
     public void MoveToPlayer(Transform playerTransform)
     {
         if (agent != null)
@@ -113,6 +112,6 @@ public class EnemyController : MonoBehaviour
 
     public void SetSpeed(float speed)
     {
-        agent.speed = 0;
+        agent.speed = speed;
     }
 }
