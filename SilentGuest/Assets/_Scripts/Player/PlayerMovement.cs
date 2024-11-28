@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject interactionPanel;
     private float CameraUpDownMov = 0;
     private CharacterController Character;
+    private Vector3 movement = Vector3.zero;
 
     private void Awake()
     {
@@ -31,9 +32,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        float forwardMovement = Input.GetAxis("Vertical") * Player_Speed;
-        float sideMovement = Input.GetAxis("Horizontal") * Player_Speed;
-        Vector3 movement = ((transform.forward * forwardMovement) + (transform.right * sideMovement));
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        Vector3 right = transform.TransformDirection(Vector3.right);
+        
+        float curSpeedX = Input.GetAxis("Vertical") * Player_Speed;
+        float curSpeedY = Input.GetAxis("Horizontal") * Player_Speed;
+        float movementDirectionY = movement.y;
+        movement = (forward * curSpeedX) + (right * curSpeedY);
+
+        movement.y = movementDirectionY;
 
         if (!Character.isGrounded)
         {
