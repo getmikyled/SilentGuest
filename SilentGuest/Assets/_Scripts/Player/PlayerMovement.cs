@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
     
     public float Player_Speed = 4f;
     public float MouseSens = 1.5f;
-    public GameObject interactionPanel;
     private float CameraUpDownMov = 0;
     private CharacterController Character;
     private Vector3 movement = Vector3.zero;
@@ -65,14 +64,14 @@ public class PlayerMovement : MonoBehaviour
 
         if(Physics.Raycast(ray, out RaycastHit raycast, 2f)){
             if(raycast.collider.gameObject.TryGetComponent(out InteractableEvent obj)){
-                interactionPanel.SetActive(true);
+                InteractionPromptManager.instance.SetInteractionPrompt(obj.GetInteractionPrompt());
                 if(Input.GetKeyDown(KeyCode.E)){
                     obj.typeEvent();
                 }
             }
         }
         else{
-            interactionPanel.SetActive(false);
+            InteractionPromptManager.instance.DeactivateInteractionPrompt();
         }
     }
 

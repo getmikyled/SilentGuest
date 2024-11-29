@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7214954448078556231}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WallClean
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,6 +83,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fc3371efc85d00749861efa948c3e7e4, type: 3}
       propertyPath: m_Name
       value: WallCleanMesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fc3371efc85d00749861efa948c3e7e4, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

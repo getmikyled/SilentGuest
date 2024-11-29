@@ -28,7 +28,7 @@ public class FieldOfView : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position, PlayerMovement.instance.transform.position) < distanceFromPlayerForGameOver && !isDead)
+        if (PlayerMovement.instance != null && Vector3.Distance(transform.position, PlayerMovement.instance.transform.position) < distanceFromPlayerForGameOver && !isDead)
         {
             isDead = true;
             EnemyController.instance.MurderPlayer();
@@ -109,6 +109,7 @@ public class FieldOfView : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        
 
         PlayerMovement.instance.transform.rotation = lookRotation;
     }

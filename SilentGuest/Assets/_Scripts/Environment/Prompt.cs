@@ -4,6 +4,11 @@ public class Prompt : MonoBehaviour, InteractableEvent
 {
     public void typeEvent()
     {
-        Debug.Log("prompt");
+        
+    }
+
+    public string GetInteractionPrompt()
+    {
+        return "Press E to Interact";
     }
 }
