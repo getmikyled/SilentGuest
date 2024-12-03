@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -32,7 +33,7 @@ public class SwitchSceneOnInteract : MonoBehaviour, InteractableEvent
         }
         else if (hasObjective && finishedObjective == false)
         {
-            DialogueManager.instance.PlayDialogue("I want to get some food first.");
+            DialogueManager.instance.PlayDialogue(new string[] {"I want to get some food first."});
         }
     }
 

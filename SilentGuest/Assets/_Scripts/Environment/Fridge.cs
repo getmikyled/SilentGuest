@@ -28,7 +28,11 @@ public class Fridge : MonoBehaviour, InteractableEvent
             {
                 triggeredLevelObjective = true;
 
-                DialogueManager.instance.PlayDialogue("A head? Am I in the house of a murderer?");
+                DialogueManager.instance.PlayDialogue(new string[]
+                {
+                    "A head? Am I in the house of a murderer?",
+                    "I have to get out of here ASAP!"
+                });
 
                 SwitchSceneOnInteract.instance.FinishedObjective();
             }

@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         else{
-            InteractionPromptManager.instance.DeactivateInteractionPrompt();
+            InteractionPromptManager.instance?.DeactivateInteractionPrompt();
         }
     }
 
