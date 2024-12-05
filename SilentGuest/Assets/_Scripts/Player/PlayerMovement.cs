@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private float CameraUpDownMov = 0;
     private CharacterController Character;
     private Vector3 movement = Vector3.zero;
+    public bool hasKey = false;
 
     private void Awake()
     {
@@ -67,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
                 InteractionPromptManager.instance.SetInteractionPrompt(obj.GetInteractionPrompt());
                 if(Input.GetKeyDown(KeyCode.E)){
                     obj.typeEvent();
+                    InteractionPromptManager.instance?.DeactivateInteractionPrompt();
                 }
             }
         }
