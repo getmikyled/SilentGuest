@@ -13,7 +13,8 @@ public class Door : MonoBehaviour, InteractableEvent
         // Return if the door is locked
         if (isLocked)
         {
-            if(PlayerMovement.instance.hasKey = true){
+            if(PlayerMovement.instance.hasKey == true){
+                PlayerMovement.instance.hasKey = false;
                 isLocked = false;
                 key.SetActive(false);
                 return;
@@ -41,7 +42,7 @@ public class Door : MonoBehaviour, InteractableEvent
     {
         if (isLocked)
         {
-            if(PlayerMovement.instance.hasKey = true){
+            if(PlayerMovement.instance.hasKey == true){
                 return "Press E to Unlock Door";
             }
             else{
