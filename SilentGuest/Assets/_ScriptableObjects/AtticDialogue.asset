@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: AtticDialogue
   m_EditorClassIdentifier: 
   _dialogueLines:
-  - Bruh, what the heck dude
-  - That's what I'm saying
-  - Okay okay
+  - "It\u2019s been weeks. I didn\u2019t plan to stay this long,"
+  - "but it\u2019s safer here than back home."
+  - "The homeowner doesn\u2019t know I\u2019m here."
+  - I take what I need, stay out of sight, and keep quiet.
+  - A couple nights ago, I heard someone scream.
+  - "But it\u2019s a rough neighborhood. People scream sometimes."
+  - 'Still, something feels wrong. '
+  - "Doesn\u2019t matter. Time to raid the Fridge, I'm hungry."
