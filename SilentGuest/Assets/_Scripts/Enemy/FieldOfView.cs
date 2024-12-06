@@ -88,6 +88,8 @@ public class FieldOfView : MonoBehaviour
     void OnPlayerSpotted()
     {
         EnemyController.instance.MoveToPlayer(PlayerMovement.instance.transform);
+        AudioManager.instance.PlayGlobalAudio("sk catches you.wav");
+        AudioManager.instance.PlayGlobalAudio("chase sound.wav");
 
         // Disable player movement and look toward enemy
         PlayerMovement.instance.DisableMovement();

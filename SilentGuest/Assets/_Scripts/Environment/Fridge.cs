@@ -15,12 +15,15 @@ public class Fridge : MonoBehaviour, InteractableEvent
         {
             // If already open, close the fridge
             _animator.CrossFade("Closing", 0.15f);
+            AudioManager.instance.PlayGlobalAudio("fridge close.wav");
             isOpen = false;
         }
         else
         {
             // Open the fridge
             _animator.CrossFade("Opening", 0.15f);
+            AudioManager.instance.PlayGlobalAudio("fridge open.wav");
+            AudioManager.instance.PlayGlobalAudio(audioName: "suspense sound.wav", loop: true);
             isOpen = true;
             
             // Trigger level objective
