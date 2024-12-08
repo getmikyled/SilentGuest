@@ -17,23 +17,27 @@ public class Door : MonoBehaviour, InteractableEvent
                 PlayerMovement.instance.hasKey = false;
                 isLocked = false;
                 key.SetActive(false);
-                return;
             }
-            else{
-                return;
+            else
+            {
+                DialogueManager.instance.PlayDialogue(new string[]{"Hm. There must be a key somewhere."});
             }
+
+            return;
         }
         
         if (isOpen)
         {
             // If already open, close the fridge
             _animator.CrossFade("Closing", 0.15f);
+            AudioManager.instance.PlayGlobalAudio("fridge close");
             isOpen = false;
         }
         else
         {
             // Open the fridge
             _animator.CrossFade("Opening", 0.15f);
+            AudioManager.instance.PlayGlobalAudio("fridge open");
             isOpen = true;
         }
     }
