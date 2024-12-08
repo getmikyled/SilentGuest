@@ -108,7 +108,7 @@ public class EnemyController : MonoBehaviour
         
         // Play stab animation
         _animator.CrossFade(SerialKiller_Stab_StateID, 0.15f);
-        AudioManager.instance.PlayGlobalAudio("death sound.wav");
+        AudioManager.instance.PlayGlobalAudio("death sound");
     }
 
     public void SetSpeed(float speed)

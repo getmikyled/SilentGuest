@@ -10,7 +10,7 @@ public class HazardTrigger : MonoBehaviour
     {
         if (EnemyController.instance != null)
         {
-            AudioManager.instance.PlayGlobalAudio("gasp.wav");
+            AudioManager.instance.PlayGlobalAudio("gasp");
             EnemyController.instance.MoveToPlayer(this.transform);
         }
 

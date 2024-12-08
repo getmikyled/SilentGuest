@@ -8,7 +8,7 @@ public class MainMenuMusic : MonoBehaviour
     {
         if (AudioManager.instance != null)
         {
-            AudioManager.instance.PlayGlobalAudio(audioName: "mainmenu audio loop.wav", loop: true); 
+            AudioManager.instance.PlayGlobalAudio(audioName: "mainmenu audio loop", loop: true); 
         }
     }
 
