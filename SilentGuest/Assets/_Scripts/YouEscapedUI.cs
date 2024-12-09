@@ -8,6 +8,7 @@ public class YouEscapedUI : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        AudioManager.instance.PlayGlobalAudio("running");
     }
     
     public void OnMainMenuButtonPressed()
