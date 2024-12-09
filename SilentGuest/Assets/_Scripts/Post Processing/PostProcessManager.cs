@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class PostProcessManager : MonoBehaviour
@@ -11,6 +12,8 @@ public class PostProcessManager : MonoBehaviour
     
     [Space]
     [SerializeField] private float deathEffectDuration = 2f;
+
+    private Coroutine deathEffect;
 
     private void Awake()
     {
@@ -29,7 +32,7 @@ public class PostProcessManager : MonoBehaviour
     
     public void PlayDeathEffect()
     {
-        StartCoroutine(CoPlayDeathEffect());
+        deathEffect = StartCoroutine(CoPlayDeathEffect());
     }
     
     private IEnumerator CoPlayDeathEffect()
@@ -48,9 +51,17 @@ public class PostProcessManager : MonoBehaviour
         }
         
         postProcessMaterial.SetFloat("_ScreenEffectIntensity", 1);
+
+        deathEffect = null;
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (deathEffect != null)
+        {
+            StopCoroutine(deathEffect);
+            deathEffect = null;
+        }
+        
         SetIntensity(0);
     }
 

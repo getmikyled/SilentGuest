@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
         gameOverUI.SetActive(false);
+        
+        DontDestroyOnLoad(gameObject);
     }
     
     public void GameOver()
@@ -32,6 +34,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Restart");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gameOverUI.SetActive(false);
     }
 
     public void MainMenu()
@@ -40,5 +43,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        gameOverUI.SetActive(false);
     }
 }
