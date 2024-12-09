@@ -7,6 +7,8 @@ public class Fridge : MonoBehaviour, InteractableEvent
     
     private bool isOpen = false;
 
+    private bool isPlayingSuspense = false;
+
     private bool triggeredLevelObjective = false;
     
     public void typeEvent()
@@ -23,7 +25,11 @@ public class Fridge : MonoBehaviour, InteractableEvent
             // Open the fridge
             _animator.CrossFade("Opening", 0.15f);
             AudioManager.instance.PlayGlobalAudio("fridge open");
-            AudioManager.instance.PlayGlobalAudio(audioName: "suspense sound", loop: true);
+            if (!isPlayingSuspense)
+            {
+                AudioManager.instance.PlayGlobalAudio(audioName: "suspense sound", volume: 0.7f, loop: true);
+                isPlayingSuspense = true;
+            }
             isOpen = true;
             
             // Trigger level objective
