@@ -16,6 +16,7 @@ public class FieldOfView : MonoBehaviour
     public bool canSeePlayer;
     
     private bool isDead;
+    private bool isKillSoundPlaying;
 
     [SerializeField] private Transform headLookAt;
     
@@ -82,14 +83,20 @@ public class FieldOfView : MonoBehaviour
         else if (canSeePlayer)
         {
             canSeePlayer = false;
+            isKillSoundPlaying = false;
         }
     }
 
     void OnPlayerSpotted()
     {
         EnemyController.instance.MoveToPlayer(PlayerMovement.instance.transform);
-        AudioManager.instance.PlayGlobalAudio("sk catches you");
-        AudioManager.instance.PlayGlobalAudio("chase sound");
+
+        if (!isKillSoundPlaying) 
+        {
+            AudioManager.instance.PlayGlobalAudio("sk catches you");
+            AudioManager.instance.PlayGlobalAudio("chase sound");
+            isKillSoundPlaying = true;
+        }
 
         // Disable player movement and look toward enemy
         PlayerMovement.instance.DisableMovement();

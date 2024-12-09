@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PostProcessManager : MonoBehaviour
 {
-    public static PostProcessManager instance;
+    public static PostProcessManager instance { get; private set; }
     
     [SerializeField] private Material postProcessMaterial;
     
@@ -22,8 +22,9 @@ public class PostProcessManager : MonoBehaviour
         {
             instance = this;
         }
-        
-        postProcessMaterial.SetFloat("_ScreenEffectIntensity", 0);
+
+        SetIntensity(0);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
     
     public void PlayDeathEffect()
@@ -47,5 +48,14 @@ public class PostProcessManager : MonoBehaviour
         }
         
         postProcessMaterial.SetFloat("_ScreenEffectIntensity", 1);
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        SetIntensity(0);
+    }
+
+    public void SetIntensity(float intensity)
+    {
+        postProcessMaterial.SetFloat("_ScreenEffectIntensity", intensity);
     }
 }
