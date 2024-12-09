@@ -16,7 +16,7 @@ public class FieldOfView : MonoBehaviour
     public bool canSeePlayer;
     
     private bool isDead;
-    private bool isKillSoundPlaying;
+    private bool isKillSoundPlaying = false;
 
     [SerializeField] private Transform headLookAt;
     
@@ -93,9 +93,8 @@ public class FieldOfView : MonoBehaviour
 
         if (!isKillSoundPlaying) 
         {
-            AudioManager.instance.StopAllAudio(); // stop any audio before player dies
             AudioManager.instance.PlayGlobalAudio("sk catches you");
-            AudioManager.instance.PlayGlobalAudio("chase sound");
+            AudioManager.instance.PlayGlobalAudio(audioName: "chase sound", volume: 0.5f);
             isKillSoundPlaying = true;
         }
 

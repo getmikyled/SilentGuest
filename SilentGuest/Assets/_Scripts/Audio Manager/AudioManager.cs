@@ -98,5 +98,22 @@ public class AudioManager : MonoBehaviour
             Destroy(audioObject);
         }
     }
-    
+
+    ///-////////////////////////////////////////////////////////////////////////////////
+    ///
+    public void StopAudio(GameObject audioObject)
+    {
+        // Stops audio for a single audio object
+        if (_activeAudioObjects.Contains(audioObject))
+        {
+            AudioSource audioSource = audioObject.GetComponent<AudioSource>();
+            if (audioSource != null)
+            {
+                audioSource.Stop();
+            }
+
+            _activeAudioObjects.Remove(audioObject);
+            Destroy(audioObject);
+        }
+    }
 }
