@@ -94,7 +94,7 @@ public class FieldOfView : MonoBehaviour
         if (!isKillSoundPlaying) 
         {
             AudioManager.instance.PlayGlobalAudio("sk catches you");
-            AudioManager.instance.PlayGlobalAudio(audioName: "chase sound", volume: 0.5f);
+            AudioManager.instance.PlayGlobalAudio(audioName: "chase sound", volume: 0.25f);
             isKillSoundPlaying = true;
         }
 

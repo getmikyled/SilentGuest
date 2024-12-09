@@ -7,6 +7,8 @@ public class Key : MonoBehaviour, InteractableEvent
 
     public void typeEvent(){
         PlayerMovement.instance.hasKey = true;
+        AudioManager.instance.PlayGlobalAudio("keypickup");
+
         key.SetActive(false);
         playerKey.SetActive(true);
     }
